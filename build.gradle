@@ -28,7 +28,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-core'
     implementation 'org.hibernate:hibernate-entitymanager'
     implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
-
+    implementation 'com.github.jsimone:webapp-runner-main:9.0.27.1'
 
     compileOnly 'org.projectlombok:lombok'
 
