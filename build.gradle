@@ -29,7 +29,9 @@ dependencies {
     implementation 'org.hibernate:hibernate-entitymanager'
     implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
     implementation 'com.github.jsimone:webapp-runner-main:9.0.27.1'
-
+    implementation 'org.apache.tomcat:tomcat-coyote:10.1.0'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.7.5'
+    
     compileOnly 'org.projectlombok:lombok'
 
     runtimeOnly 'org.postgresql:postgresql'
