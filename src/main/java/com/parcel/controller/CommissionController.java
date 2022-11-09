@@ -4,7 +4,11 @@ import com.parcel.model.api.request.CreateCommissionRequest;
 import com.parcel.model.api.response.CommissionResponse;
 import com.parcel.service.CommissionService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,5 +36,12 @@ public class CommissionController {
         return commissionService.fetchCommissions(id).stream()
                 .map(p -> new CommissionResponse(p.getId(), p.getDestination(), p.getDeliveryDate().toString(), p.getShipment().getId(), p.getDriver().getId(), p.getVehicle().getId()))
                 .collect(Collectors.toList());
+    }
+
+    @DeleteMapping(path = "/delete")
+    @Operation(summary = "Delete commission from database")
+    public ResponseEntity<Void> deleteCommission(@RequestParam Long id) {
+        commissionService.deleteCommissionById(id);
+        return ResponseEntity.noContent().build();
     }
 }

@@ -55,4 +55,8 @@ public class CommissionService {
             return commissionRepository.findAll();
         }
     }
+
+    public void deleteCommissionById(Long id) {
+        commissionRepository.deleteById(id);
+    }
 }
