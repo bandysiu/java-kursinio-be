@@ -26,14 +26,7 @@ public class DtoShipment {
     @Column(name = "WEIGHT", nullable = false)
     private String weight;
 
-    @OneToMany(mappedBy = "shipment")
-    private List<DtoCommission> commissions;
-
-    public void addCommission(DtoCommission commission){
-        this.commissions.add(commission);
-        if(commission.getShipment() != this){
-            commission.setShipment(this);
-        }
-    }
+    @OneToOne(mappedBy = "shipment")
+    private DtoCommission commission;
 
 }

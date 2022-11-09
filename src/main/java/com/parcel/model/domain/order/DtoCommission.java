@@ -29,7 +29,7 @@ public class DtoCommission {
     @Column(name = "DELIVERY_DATE", nullable = false)
     private Timestamp deliveryDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIPMENT_ID")
     private DtoShipment shipment;
 

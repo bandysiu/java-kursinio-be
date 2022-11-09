@@ -65,14 +65,14 @@ public class UserController {
         this.userService.updateUserInformation(login, newLogin, newEmail, newPassword);
     }
 
-    @DeleteMapping(path = "/delete/{id}")
+    @DeleteMapping(path = "/delete")
     @Operation(summary = "Delete user from database")
     @ApiResponse(
             responseCode = "200",
             description = "User was deleted successfully",
             content = @Content(schema = @Schema(implementation = Long.class))
     )
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@RequestParam Long id) {
         userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
