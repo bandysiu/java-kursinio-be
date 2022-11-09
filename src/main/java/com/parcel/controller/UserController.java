@@ -6,6 +6,9 @@ import com.parcel.model.domain.user.UserPosition;
 import com.parcel.model.domain.user.UserStatus;
 import com.parcel.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +29,11 @@ public class UserController {
     }
 
     @PostMapping(path = "/registration")
+    @ApiResponse(
+            responseCode = "200",
+            description = "User was created successfully",
+            content = @Content(schema = @Schema(implementation = Long.class))
+    )
     @Operation(summary = "Create new user in database")
     public Long createUser(@Validated @RequestBody CreateUserRequest request) {
         return userService.createUser(request).getId();
@@ -45,6 +53,11 @@ public class UserController {
 
     @PutMapping(path = "/update")
     @Operation(summary = "Update user information")
+    @ApiResponse(
+            responseCode = "201",
+            description = "User was updated successfully",
+            content = @Content(schema = @Schema(implementation = Long.class))
+    )
     public void updateUserLogin(@RequestParam String login,
                                 @RequestParam(required = false) String newLogin,
                                 @RequestParam(required = false) String newEmail,
@@ -54,8 +67,13 @@ public class UserController {
 
     @DeleteMapping(path = "/delete")
     @Operation(summary = "Delete user from database")
-    public ResponseEntity<Void> deleteUserByLogin(@RequestParam String login) {
-        userService.deleteUserByLogin(login);
+    @ApiResponse(
+            responseCode = "200",
+            description = "User was deleted successfully",
+            content = @Content(schema = @Schema(implementation = Long.class))
+    )
+    public ResponseEntity<Void> deleteUser(@RequestParam Long id) {
+        userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
 

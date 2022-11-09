@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface CommissionRepository extends JpaRepository<DtoCommission, Long> {
     List<DtoCommission> findAllById(Long id);
+    DtoCommission findDtoCommissionById(Long id);
 }

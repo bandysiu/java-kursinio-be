@@ -71,8 +71,7 @@ public class UserService {
         }
     }
 
-    public void deleteUserByLogin(String login) {
-        DtoUser dtoUser = userRepository.findByLogin(login);
-        userRepository.deleteById(dtoUser.getId());
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
     }
 }

@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.5'
+    id 'org.springframework.boot' version '2.4.2'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'java'
 }
@@ -28,15 +28,12 @@ dependencies {
     implementation 'org.hibernate:hibernate-core'
     implementation 'org.hibernate:hibernate-entitymanager'
     implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
-    implementation 'com.github.jsimone:webapp-runner-main:9.0.27.1'
-    implementation 'org.apache.tomcat:tomcat-coyote:10.1.0'
-    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.7.5'
-    
-    compileOnly 'org.projectlombok:lombok'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
 
     runtimeOnly 'org.postgresql:postgresql'
 
-    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
