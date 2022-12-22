@@ -1,7 +1,7 @@
 package com.parcel.service;
 
 import com.parcel.model.api.request.CreateCommissionRequest;
-import com.parcel.model.domain.DtoVehicle;
+import com.parcel.model.domain.vehicle.DtoVehicle;
 import com.parcel.model.domain.order.DtoCommission;
 import com.parcel.model.domain.order.DtoShipment;
 import com.parcel.model.domain.user.DtoUser;

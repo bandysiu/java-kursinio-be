@@ -1,4 +1,4 @@
-package com.parcel.model.domain;
+package com.parcel.model.domain.vehicle;
 
 import com.parcel.model.domain.order.DtoCommission;
 import lombok.AllArgsConstructor;

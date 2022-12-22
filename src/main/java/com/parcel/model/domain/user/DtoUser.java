@@ -1,5 +1,6 @@
 package com.parcel.model.domain.user;
 
+import com.parcel.model.domain.forum.DtoComments;
 import com.parcel.model.domain.order.DtoCommission;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,4 +47,7 @@ public class DtoUser {
 
     @OneToMany(mappedBy = "driver")
     private List<DtoCommission> commissions;
+
+    @OneToMany(mappedBy = "user")
+    private List<DtoComments> comments;
 }

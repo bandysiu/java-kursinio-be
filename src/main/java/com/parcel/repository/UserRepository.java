@@ -1,13 +1,11 @@
 package com.parcel.repository;
 
-import com.parcel.model.domain.DtoVehicle;
 import com.parcel.model.domain.user.DtoUser;
 import com.parcel.model.domain.user.UserPosition;
 import com.parcel.model.domain.user.UserStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<DtoUser, Long> {
 

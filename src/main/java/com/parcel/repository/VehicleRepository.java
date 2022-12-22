@@ -1,7 +1,7 @@
 package com.parcel.repository;
 
-import com.parcel.model.domain.DtoVehicle;
-import com.parcel.model.domain.VehicleStatus;
+import com.parcel.model.domain.vehicle.DtoVehicle;
+import com.parcel.model.domain.vehicle.VehicleStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

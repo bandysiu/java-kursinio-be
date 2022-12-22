@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "api/v1/commission")
+@RequestMapping(path = "api/commission")
 public class CommissionController {
 
     private final CommissionService commissionService;

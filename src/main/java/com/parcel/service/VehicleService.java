@@ -1,8 +1,8 @@
 package com.parcel.service;
 
 import com.parcel.model.api.request.CreateVehicleRequest;
-import com.parcel.model.domain.DtoVehicle;
-import com.parcel.model.domain.VehicleStatus;
+import com.parcel.model.domain.vehicle.DtoVehicle;
+import com.parcel.model.domain.vehicle.VehicleStatus;
 import com.parcel.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

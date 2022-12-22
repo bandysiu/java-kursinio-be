@@ -1,6 +1,6 @@
 package com.parcel.model.domain.order;
 
-import com.parcel.model.domain.DtoVehicle;
+import com.parcel.model.domain.vehicle.DtoVehicle;
 import com.parcel.model.domain.user.DtoUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

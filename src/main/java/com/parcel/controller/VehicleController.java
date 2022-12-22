@@ -2,8 +2,7 @@ package com.parcel.controller;
 
 import com.parcel.model.api.request.CreateVehicleRequest;
 import com.parcel.model.api.response.VehicleResponse;
-import com.parcel.model.domain.VehicleStatus;
-import com.parcel.service.UserService;
+import com.parcel.model.domain.vehicle.VehicleStatus;
 import com.parcel.service.VehicleService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/v1/vehicle")
+@RequestMapping("api/vehicle")
 public class VehicleController {
 
     private final VehicleService vehicleService;

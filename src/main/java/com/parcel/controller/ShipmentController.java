@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "api/v1/shipment")
+@RequestMapping(path = "api/shipment")
 public class ShipmentController {
 
     private final ShipmentService shipmentService;
