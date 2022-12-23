@@ -16,4 +16,7 @@ public class ShipmentResponse {
 
     @Schema(description = "Shipment weight", example = "2000kg")
     private String weight;
+
+    @Schema(description = "Status", example = "FREE")
+    private String status;
 }

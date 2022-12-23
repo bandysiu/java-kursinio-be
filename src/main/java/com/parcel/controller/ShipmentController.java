@@ -31,7 +31,7 @@ public class ShipmentController {
     @Operation(summary = "Get shipments from database")
     public List<ShipmentResponse> fetchShipments(@RequestParam(required = false) Long id){
         return shipmentService.fetchShipments(id).stream()
-                .map(p -> new ShipmentResponse(p.getId() ,p.getDescription(), p.getWeight()))
+                .map(p -> new ShipmentResponse(p.getId() ,p.getDescription(), p.getWeight(), p.getStatus().toString()))
                 .collect(Collectors.toList());
     }
 }

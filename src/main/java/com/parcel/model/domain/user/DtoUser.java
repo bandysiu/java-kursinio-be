@@ -2,6 +2,7 @@ package com.parcel.model.domain.user;
 
 import com.parcel.model.domain.forum.DtoComments;
 import com.parcel.model.domain.order.DtoCommission;
+import com.parcel.model.domain.order.DtoTrip;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,9 +46,9 @@ public class DtoUser {
     @Column(name = "STATUS")
     private UserStatus status;
 
-    @OneToMany(mappedBy = "driver")
-    private List<DtoCommission> commissions;
-
     @OneToMany(mappedBy = "user")
     private List<DtoComments> comments;
+
+    @OneToMany(mappedBy = "driver")
+    private List<DtoTrip> trips;
 }

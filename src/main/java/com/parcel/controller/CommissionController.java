@@ -34,7 +34,7 @@ public class CommissionController {
     @Operation(summary = "Get commissions from database")
     public List<CommissionResponse> fetchCommissions(@RequestParam(required = false) Long id){
         return commissionService.fetchCommissions(id).stream()
-                .map(p -> new CommissionResponse(p.getId(), p.getDestination(), p.getDeliveryDate().toString(), p.getShipment().getId(), p.getDriver().getId(), p.getVehicle().getId()))
+                .map(p -> new CommissionResponse(p.getId(), p.getDestination(), p.getDeliveryDate().toString(), p.getShipment().getId(), p.getStatus().toString(),p.getVehicle().getId()))
                 .collect(Collectors.toList());
     }
 

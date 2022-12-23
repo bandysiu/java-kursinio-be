@@ -2,6 +2,7 @@ package com.parcel.service;
 
 import com.parcel.model.api.request.CreateShipmentRequest;
 import com.parcel.model.domain.order.DtoShipment;
+import com.parcel.model.domain.order.OrderStatus;
 import com.parcel.repository.ShipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class ShipmentService {
         DtoShipment shipment = DtoShipment.builder()
                 .description(request.getDescription())
                 .weight(request.getWeight())
+                .status(OrderStatus.FREE)
                 .build();
         return shipmentRepository.save(shipment);
     }

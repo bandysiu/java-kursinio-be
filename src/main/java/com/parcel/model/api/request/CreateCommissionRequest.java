@@ -1,12 +1,12 @@
 package com.parcel.model.api.request;
 
+import com.parcel.model.domain.order.OrderStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -24,10 +24,12 @@ public class CreateCommissionRequest {
     @Schema(description = "Commission shipment id", example = "1")
     private Long shipmentId;
     @NonNull
-    @Schema(description = "Commission user id", example = "1")
-    private Long userId;
-    @NonNull
     @Schema(description = "Commission vehicle id", example = "1")
     private Long vehicleId;
+    @NonNull
+    @Schema(description = "Commission status", example = "FREE")
+    private OrderStatus status;
+
+
 
 }

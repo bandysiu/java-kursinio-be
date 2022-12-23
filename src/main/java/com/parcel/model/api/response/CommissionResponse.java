@@ -21,8 +21,8 @@ public class CommissionResponse {
     @Schema(description = "Commission shipment id", example = "1")
     private Long shipmentId;
 
-    @Schema(description = "Commission user id", example = "1")
-    private Long userId;
+    @Schema(description = "Commission status", example = "FREE")
+    private String status;
 
     @Schema(description = "Commission vehicle id", example = "1")
     private Long vehicleId;

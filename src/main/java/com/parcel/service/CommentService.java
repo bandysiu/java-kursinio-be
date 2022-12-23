@@ -8,6 +8,8 @@ import com.parcel.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -29,11 +31,12 @@ public class CommentService {
     public DtoComments createComment(CreateCommentRequest request) {
 
         DtoUser user = userService.fetchUser(request.getUserId());
-
+        SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         DtoComments comment = DtoComments.builder()
                 .comment(request.getComment())
                 .forumId(request.getForumId())
-                .date(LocalDate.now())
+                .date(sdf3.format(timestamp))
                 .user(user)
                 .build();
 

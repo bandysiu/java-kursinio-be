@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -29,7 +30,7 @@ public class DtoComments {
     private Long forumId;
 
     @Column(name = "DATE", nullable = false)
-    private LocalDate date;
+    private String date;
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "FORUM_ID")

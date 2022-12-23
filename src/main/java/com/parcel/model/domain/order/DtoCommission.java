@@ -1,7 +1,6 @@
 package com.parcel.model.domain.order;
 
 import com.parcel.model.domain.vehicle.DtoVehicle;
-import com.parcel.model.domain.user.DtoUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,13 +28,12 @@ public class DtoCommission {
     @Column(name = "DELIVERY_DATE", nullable = false)
     private Timestamp deliveryDate;
 
+    @Column(name = "STATUS", nullable = false)
+    private OrderStatus status;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIPMENT_ID")
     private DtoShipment shipment;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    private DtoUser driver;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "VEHICLE_ID")

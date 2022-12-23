@@ -18,23 +18,23 @@ public class CommentController {
     private final CommentService commentService;
 
     @Autowired
-    public CommentController(CommentService commentService){
+    public CommentController(CommentService commentService) {
         this.commentService = commentService;
     }
 
     @PostMapping(path = "/create")
     @Operation(summary = "Create new comment in database")
-    public Long createComment(@Validated @RequestBody CreateCommentRequest request){
+    public Long createComment(@Validated @RequestBody CreateCommentRequest request) {
         return commentService.createComment(request).getId();
     }
 
     @GetMapping(value = "/comments")
     @Operation(summary = "Get comments from database")
     public List<CommentsResponse> fetch(@RequestParam(required = false) Long id,
-                                     @RequestParam(required = false) Long userId,
-                                     @RequestParam(required = false) Long forumId){
+                                        @RequestParam(required = false) Long userId,
+                                        @RequestParam(required = false) Long forumId) {
         return commentService.fetchComments(id, userId, forumId).stream()
-                .map(p -> new CommentsResponse(p.getId(), p.getComment(), p.getDate() ,p.getForumId(), p.getUser().getId()))
+                .map(p -> new CommentsResponse(p.getId(), p.getDate(), p.getUser().getLogin(), p.getForumId(), p.getComment()))
                 .collect(Collectors.toList());
     }
 
