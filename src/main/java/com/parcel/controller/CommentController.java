@@ -24,7 +24,7 @@ public class CommentController {
 
     @PostMapping(path = "/create")
     @Operation(summary = "Create new comment in database")
-    public Long createShipment(@Validated @RequestBody CreateCommentRequest request){
+    public Long createComment(@Validated @RequestBody CreateCommentRequest request){
         return commentService.createComment(request).getId();
     }
 
@@ -34,7 +34,7 @@ public class CommentController {
                                      @RequestParam(required = false) Long userId,
                                      @RequestParam(required = false) Long forumId){
         return commentService.fetchComments(id, userId, forumId).stream()
-                .map(p -> new CommentsResponse(p.getId(), p.getComment(), p.getForum().getId(), p.getUser().getId()))
+                .map(p -> new CommentsResponse(p.getId(), p.getComment(), p.getDate() ,p.getForumId(), p.getUser().getId()))
                 .collect(Collectors.toList());
     }
 

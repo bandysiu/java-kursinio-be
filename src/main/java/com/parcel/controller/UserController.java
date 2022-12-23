@@ -2,6 +2,7 @@ package com.parcel.controller;
 
 import com.parcel.model.api.request.CreateUserRequest;
 import com.parcel.model.api.response.UserResponse;
+import com.parcel.model.api.update.UpdateUserBody;
 import com.parcel.model.domain.user.UserPosition;
 import com.parcel.model.domain.user.UserStatus;
 import com.parcel.service.UserService;
@@ -51,18 +52,26 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @PutMapping(path = "/update")
+//    @PutMapping(path = "/self_update")
+//    @Operation(summary = "Update user information")
+//    @ApiResponse(
+//            responseCode = "201",
+//            description = "User was updated successfully",
+//            content = @Content(schema = @Schema(implementation = Long.class))
+//    )
+//    public void updateUser(@Validated @RequestBody UpdateUserBody request) {
+//        this.userService.updateUser(request);
+//    }
+
+    @PutMapping(path = "/manager_update")
     @Operation(summary = "Update user information")
     @ApiResponse(
             responseCode = "201",
             description = "User was updated successfully",
             content = @Content(schema = @Schema(implementation = Long.class))
     )
-    public void updateUserLogin(@RequestParam String login,
-                                @RequestParam(required = false) String newLogin,
-                                @RequestParam(required = false) String newEmail,
-                                @RequestParam(required = false) String newPassword) {
-        this.userService.updateUserInformation(login, newLogin, newEmail, newPassword);
+    public void updateUserManager(@Validated @RequestBody UpdateUserBody request) {
+        this.userService.updateUserManager(request);
     }
 
     @DeleteMapping(path = "/delete")

@@ -8,6 +8,7 @@ import com.parcel.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,12 +29,12 @@ public class CommentService {
     public DtoComments createComment(CreateCommentRequest request) {
 
         DtoUser user = userService.fetchUser(request.getUserId());
-        List<DtoForum> forum = forumService.fetchForum(request.getForumId());
 
         DtoComments comment = DtoComments.builder()
                 .comment(request.getComment())
+                .forumId(request.getForumId())
+                .date(LocalDate.now())
                 .user(user)
-                .forum((DtoForum) forum)
                 .build();
 
         return commentRepository.save(comment);

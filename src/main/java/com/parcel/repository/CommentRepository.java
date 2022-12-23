@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<DtoComments, Long> {
     List<DtoComments> findAllById(Long id);
-    List<DtoComments> findAllByUserId(Long id);
-    List<DtoComments> findAllByForumId(Long id);
+    List<DtoComments> findAllByUserId(Long userId);
+    List<DtoComments> findAllByForumId(Long forumId);
 }

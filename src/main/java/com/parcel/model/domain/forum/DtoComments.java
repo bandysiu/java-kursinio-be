@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Entity(name = "COMMENTS")
@@ -23,9 +25,15 @@ public class DtoComments {
     @Column(name = "COMMENT", nullable = false, length = 255)
     private String comment;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FORUM_ID")
-    private DtoForum forum;
+    @Column(name = "FORUM_ID", nullable = false)
+    private Long forumId;
+
+    @Column(name = "DATE", nullable = false)
+    private LocalDate date;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "FORUM_ID")
+//    private DtoForum forum;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")

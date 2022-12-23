@@ -1,6 +1,7 @@
 package com.parcel.service;
 
 import com.parcel.model.api.request.CreateUserRequest;
+import com.parcel.model.api.update.UpdateUserBody;
 import com.parcel.model.domain.user.DtoUser;
 import com.parcel.model.domain.user.UserPosition;
 import com.parcel.model.domain.user.UserStatus;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -55,7 +55,7 @@ public class UserService {
         return userRepository.findUserById(id);
     }
 
-    public void updateUserInformation(String login, String newLogin, String newEmail, String newPassword) {
+    public void updateUser(String login, String newLogin, String newEmail, String newPassword) {
         if (newLogin != null) {
             DtoUser dtoUser = userRepository.findByLogin(login);
             dtoUser.setLogin(newLogin);
@@ -69,6 +69,18 @@ public class UserService {
             dtoUser.setPassword(newPassword);
             userRepository.save(dtoUser);
         }
+    }
+
+    public void updateUserManager(UpdateUserBody request){
+        DtoUser user = userRepository.findByLogin(request.getLogin());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        user.setEmail(request.getEmail());
+        user.setSalary(request.getSalary());
+        user.setStatus(request.getStatus());
+        user.setPosition(request.getPosition());
+
+        userRepository.save(user);
     }
 
     public void deleteUserById(Long id) {

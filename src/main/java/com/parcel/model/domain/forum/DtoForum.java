@@ -6,10 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
-@Entity(name = "FORUM")
+@Entity(name = "Forum")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,9 +18,9 @@ public class DtoForum {
     @Column(name = "FORUM_ID", nullable = false)
     private Long id;
 
-    @Column(name = "FORUM_NAME", nullable = false, length = 20)
-    private String forumName;
+    @Column(name = "FORUM_NAME", nullable = false)
+    private String name;
 
-    @OneToMany(mappedBy = "forum")
-    private List<DtoComments> comments;
+    @Column(name = "MANAGER", nullable = false)
+    private Boolean isManager;
 }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ForumRepository extends JpaRepository<DtoForum, Long> {
     List<DtoForum> findAllById(Long id);
-    DtoForum findByForumId(Long id);
+    DtoForum findForumById(Long id);
 
 }
